@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		test.bat = test.bat
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarPark", "CarPark\CarPark.csproj", "{10C0C0A6-3972-4316-AEB1-7872207A9A89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{780595FD-678E-456B-BD3C-787EC10C0B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{780595FD-678E-456B-BD3C-787EC10C0B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{780595FD-678E-456B-BD3C-787EC10C0B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C0C0A6-3972-4316-AEB1-7872207A9A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C0C0A6-3972-4316-AEB1-7872207A9A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C0C0A6-3972-4316-AEB1-7872207A9A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C0C0A6-3972-4316-AEB1-7872207A9A89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
