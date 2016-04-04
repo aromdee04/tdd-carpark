@@ -5,3 +5,11 @@
 
 <h2>CheckIn</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.TextBox("PlateNo")
+
+    <button type="submit" class="btn btn-ok">
+        Submit
+    </button>
+}

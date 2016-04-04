@@ -142,6 +142,22 @@ namespace CarPark.Facts
                 Assert.Equal("Invalid DateOut < DateIn.", ex.Message);
             }
 
+            [Theory]
+            [InlineData("9:00", "17:00", 200)]
+            [InlineData("9:00", "18:00", 230)]
+            [InlineData("9:00", "19:00", 260)]
+            [InlineData("9:00", "20:00", 290)]
+            public void SamplingTests(string dateIn, string dateOut, decimal expectedFee)
+            {
+                var t = new Ticket();
+                t.DateIn = DateTime.Parse(dateIn);
+                t.DateOut = DateTime.Parse(dateOut);
+
+                var fee = t.ParkingFee;
+
+                Assert.Equal(expectedFee, fee);
+            }
+
         }
     }
 }

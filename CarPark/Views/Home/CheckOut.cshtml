@@ -1,7 +1,31 @@
-﻿
+﻿@using CarPark.Models
+
 @{
     ViewBag.Title = "CheckOut";
 }
 
 <h2>CheckOut</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("TicketId")
+
+    <button type="submit" class="btn btn-ok">
+        Submit
+    </button>
+}
+
+<hr/>
+@if (TempData["LastTicket"] != null)
+{
+    var t = TempData["LastTicket"] as Ticket;
+
+    <div>
+        @t.DateIn<br/>
+        @t.DateOut<br/>
+        Fee = @t.ParkingFee
+    </div>
+}
+
 
