@@ -9,11 +9,15 @@ namespace CarPark.Models
     public class Ticket
     {
         public DateTime DateIn { get; set; }
-        public DateTime DateOut { get; set; }
-        public decimal ParkingFee {
+        public DateTime? DateOut { get; set; }
+        public decimal? ParkingFee {
             get
             {
-                var TimeDiff = DateOut.TimeOfDay - DateIn.TimeOfDay;
+                if (!DateOut.HasValue) return null;
+
+                if (DateOut < DateIn) throw new Exception("Invalid DateOut < DateIn.");
+
+                var TimeDiff = DateOut.Value.TimeOfDay - DateIn.TimeOfDay;
 
                 decimal TotalMinutes = Convert.ToDecimal(TimeDiff.TotalMinutes);
                 int NetHours = Convert.ToInt16(TotalMinutes / 60);

@@ -28,12 +28,30 @@ namespace CarPark.Facts
                 // assert ตรวจสอบ
                 Assert.Equal("8315", t.PlateNo);
                 Assert.Equal(9, t.DateIn.Hour);
-                Assert.Equal(13, t.DateOut.Hour);
+                Assert.Equal(13, t.DateOut.Value.Hour);
+            }
+
+            [Fact]
+            public void NewTicket_HasNoDateOut()
+            {
+                var t = new Ticket();
+
+                Assert.Null(t.DateOut);
             }
         }
 
         public class ParkingFeeProperty
         {
+            [Fact]
+            public void NewTicket_DontKnowParkingFee()
+            {
+                var t = new Ticket();
+                t.DateIn = DateTime.Parse("9:00");
+                t.DateOut = null;
+
+                Assert.Null(t.ParkingFee);
+            }
+
             [Fact]
             public void First15Minutes_Free()
             {
@@ -43,7 +61,7 @@ namespace CarPark.Facts
                 t.DateOut = DateTime.Parse("9:15");
 
                 // act
-                decimal fee = t.ParkingFee;
+                decimal? fee = t.ParkingFee;
 
                 // assert
                 Assert.Equal(0m, fee);
@@ -56,7 +74,7 @@ namespace CarPark.Facts
                 t.DateIn = DateTime.Parse("9:00");
                 t.DateOut = DateTime.Parse("9:15:01");
 
-                decimal fee = t.ParkingFee;
+                decimal? fee = t.ParkingFee;
 
                 Assert.Equal(50m, fee);
             }
@@ -68,7 +86,7 @@ namespace CarPark.Facts
                 t.DateIn = DateTime.Parse("9:00");
                 t.DateOut = DateTime.Parse("12:11");
 
-                decimal fee = t.ParkingFee;
+                decimal? fee = t.ParkingFee;
 
                 Assert.Equal(50m, fee);
             }
@@ -80,7 +98,7 @@ namespace CarPark.Facts
                 t.DateIn = DateTime.Parse("9:00");
                 t.DateOut = DateTime.Parse("13:00");
 
-                decimal fee = t.ParkingFee;
+                decimal? fee = t.ParkingFee;
 
                 Assert.Equal(80m, fee);
             }
@@ -92,7 +110,7 @@ namespace CarPark.Facts
                 t.DateIn = DateTime.Parse("9:00");
                 t.DateOut = DateTime.Parse("15:00");
 
-                decimal fee = t.ParkingFee;
+                decimal? fee = t.ParkingFee;
 
                 Assert.Equal(140m, fee);
             }
@@ -104,10 +122,26 @@ namespace CarPark.Facts
                 t.DateIn = DateTime.Parse("9:00");
                 t.DateOut = DateTime.Parse("15:15:01");
 
-                decimal fee = t.ParkingFee;
+                decimal? fee = t.ParkingFee;
 
                 Assert.Equal(170m, fee);
             }
+
+            [Fact]
+            public void DateOutIsBeforeDateIn_ThrowsException()
+            {
+                var t = new Ticket();
+                t.DateIn = DateTime.Parse("15:00");
+                t.DateOut = DateTime.Parse("8:15:01");
+
+                var ex = Assert.Throws<Exception>(() =>
+                {
+                    var fee = t.ParkingFee;
+                });
+
+                Assert.Equal("Invalid DateOut < DateIn.", ex.Message);
+            }
+
         }
     }
 }
