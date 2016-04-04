@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarPark.Models", "CarPark.Models\CarPark.Models.csproj", "{E8A706DA-DE03-4EE0-87A9-45CCC9738493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarPark.Facts", "CarPark.Facts\CarPark.Facts.csproj", "{780595FD-678E-456B-BD3C-787EC10C0B33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{85817AC3-556B-46F7-86E6-8E0A52F28AFF}"
+	ProjectSection(SolutionItems) = preProject
+		test.bat = test.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8A706DA-DE03-4EE0-87A9-45CCC9738493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A706DA-DE03-4EE0-87A9-45CCC9738493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A706DA-DE03-4EE0-87A9-45CCC9738493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A706DA-DE03-4EE0-87A9-45CCC9738493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{780595FD-678E-456B-BD3C-787EC10C0B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780595FD-678E-456B-BD3C-787EC10C0B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780595FD-678E-456B-BD3C-787EC10C0B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780595FD-678E-456B-BD3C-787EC10C0B33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
